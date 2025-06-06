@@ -13,8 +13,8 @@ if not os.getenv("PINECONE_API_KEY"):
 pinecone_api_key = os.environ.get("PINECONE_API_KEY")
 
 pc = Pinecone(api_key=pinecone_api_key)
-index_name = os.environ['PINECONE_INDEX_NAME']  # change if desired
-
+index_name = os.environ.get('PINECONE_INDEX_NAME')  # change if desired
+print(f"Index name: {index_name}")
 if not pc.has_index(index_name):
     pc.create_index(
         name=index_name,
@@ -27,4 +27,3 @@ index = pc.Index(index_name)
 
 embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 vector_store = PineconeVectorStore(index=index, embedding=embeddings)
-
