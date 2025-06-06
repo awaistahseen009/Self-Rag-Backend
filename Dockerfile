@@ -6,7 +6,7 @@ USER user
 ENV PATH="/home/user/.local/bin:$PATH"
 
 # Create and set working directory
-RUN mkdir /app
+
 WORKDIR /app
 
 # Copy and install requirements
