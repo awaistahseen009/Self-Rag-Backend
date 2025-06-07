@@ -1,7 +1,7 @@
 pipeline {
     stages {
         stage("Installing Python") {
-            step {
+            steps {
                 echo "Install Python"
                 sh '''
                 if ! command -v python3 &> /dev/null; then
@@ -14,7 +14,7 @@ pipeline {
         }
 
         stage("Setting up the python environment"){
-            step {
+            steps {
                 echo "Setting up the python environment"
                 sh '''
                 python3 -m venv venv
@@ -26,7 +26,7 @@ pipeline {
         }
 
         stage("Running the tests"){
-            step {
+            steps {
                 echo "Running the tests using pytest"
                 withCredentials([
                     string(credentialsId: 'GOOGLE_API_KEY', variable: 'GOOGLE_API_KEY'),
