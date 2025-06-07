@@ -1,19 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("Installing Python") {
-            steps {
-                echo "Install Python"
-                sh '''
-                if ! command -v python3 &> /dev/null; then
-                    sudo apt-get update
-                    sudo apt-get install -y python3 python3-venv python3-pip
-                fi
-                python3 --version
-                '''
-            }
-        }
-
         stage("Setting up the python environment"){
             steps {
                 echo "Setting up the python environment"
