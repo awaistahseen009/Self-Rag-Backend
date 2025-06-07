@@ -6,8 +6,8 @@ pipeline {
                 echo "Install Python"
                 sh '''
                 if ! command -v python3 &> /dev/null; then
-                    apt-get update
-                    apt-get install -y python3 python3-venv python3-pip
+                    sudo apt-get update
+                    sudo apt-get install -y python3 python3-venv python3-pip
                 fi
                 python3 --version
                 '''
